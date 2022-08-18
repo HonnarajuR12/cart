@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react-native";
 import { ItemType } from "../utils/type";
 import { tempItems } from "../utils/tempData";
@@ -9,9 +9,9 @@ enum WorkType {
     Dec = 'dec',
 }
 const Home = () => {
-    const [items, setItems] = React.useState<ItemType[]>(tempItems);
-
-    const [validCount, setValidCount] = React.useState<number>(0);
+    const [items, setItems] = useState<ItemType[]>(tempItems);
+    const [validCount, setValidCount] = useState<number>(0);
+    const [lastId, setLastId] = useState<number>(4);
 
     const handleCount = (id: number, type: WorkType) => {
         setItems(items.map(item => {
@@ -49,7 +49,8 @@ const Home = () => {
     }
 
     const handleAddNewItem = () => {
-        setItems([...items, { id: items.length + 1, count: 0, isValidCount: false }]);
+        setItems([...items, { id: lastId + 1, count: 0, isValidCount: false }]);
+        setLastId(lastId + 1);
     }
 
     return (
