@@ -1,5 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+
+const IncrementIcon = require("../../assets/increment.png");
+const DecrementIcon = require("../../assets/decrement.png");
+const RemoveIcon = require("../../assets/remove.png");
+
 type Props = {
     count: number;
     onIncrement: () => void;
@@ -21,19 +26,19 @@ const CartItem = ({ count, onIncrement, onDecrement, onRemove }: Props) => {
             </Text>
             <TouchableOpacity style={[styles.button, { backgroundColor: "#6dc926" }]} onPress={onIncrement}>
                 <Image
-                    source={require("../../assets/increment.png")}
+                    source={IncrementIcon}
                     style={{ width: 40, height: 40 }}
                 />
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, { backgroundColor: "#8dbccc" }]} onPress={onDecrement}>
                 <Image
-                    source={require("../../assets/decrement.png")}
+                    source={DecrementIcon}
                     style={{ width: 45, height: 45, marginTop: 1 }}
                 />
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, { backgroundColor: 'red' }]} onPress={onRemove}>
                 <Image
-                    source={require("../../assets/remove.png")}
+                    source={RemoveIcon}
                     style={{ width: 25, height: 25 }}
                 />
             </TouchableOpacity>

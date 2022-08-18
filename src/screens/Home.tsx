@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react
 import { ItemType } from "../utils/type";
 import { tempItems } from "../utils/tempData";
 
+const refreshButton = require("../../assets/refresh.png");
+const recycleButton = require("../../assets/recycle.png");
+
 import CartItem from "../components/CartItem";
 enum WorkType {
     Inc = 'inc',
@@ -74,7 +77,7 @@ const Home = () => {
                     onPress={handleRefresh}
                 >
                     <Image
-                        source={require("../../assets/refresh.png")}
+                        source={refreshButton}
                         style={{ width: 30, height: 30 }}
                     />
                 </TouchableOpacity>
@@ -83,7 +86,7 @@ const Home = () => {
                     onPress={handleRecyle}
                 >
                     <Image
-                        source={require("../../assets/recycle.png")}
+                        source={recycleButton}
                         style={{ width: 30, height: 30 }}
                     />
                 </TouchableOpacity>
