@@ -48,6 +48,10 @@ const Home = () => {
         setValidCount(0);
     }
 
+    const handleAddNewItem = () => {
+        setItems([...items, { id: items.length + 1, count: 0, isValidCount: false }]);
+    }
+
     return (
         <View style={styles.root}>
             <View style={styles.header}>
@@ -99,6 +103,12 @@ const Home = () => {
                 ListEmptyComponent={() => <Text style={styles.emptytext}> No Items In the Cart </Text>}
             />
 
+            <TouchableOpacity
+                style={[styles.button, { backgroundColor: '#b4b4b4', width: 200, height: 40 }]}
+                onPress={handleAddNewItem}
+            >
+                <Text style={{ fontSize: 20, color: "black" }}> Add new Item </Text>
+            </TouchableOpacity>
         </View>
     )
 }
